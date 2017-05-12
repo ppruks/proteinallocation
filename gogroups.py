@@ -1,6 +1,3 @@
-from matplotlib import pyplot as plt
-from matplotlib_venn import venn2
-
 class GOGroups():
 	'''
 		This class generates a GO (Gene Ontology) group - a set of proteins.
@@ -47,9 +44,6 @@ class GOGroups():
 		'''
 		self.proteins = other.getProteins() - self.proteins
 
-	def plotVenn(self, other):
-		venn2(subsets = (self.proteins, other.getProteins()), set_labels = (self.name, other.getName()))
-		plt.show()
 	
 
 
