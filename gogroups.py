@@ -1,6 +1,6 @@
 class GOGroups():
 	'''
-		This class generates a GO (Gene Ontology) group - a set of proteins.
+		A GO Group is a set of proteins.
 	'''
 	def __init__(self, filename, name):
 		self.filename = filename
@@ -20,27 +20,27 @@ class GOGroups():
 		'''
 		return self.name
 	
-	def sum(self, other):
+	def unionWith(self, other):
 		'''
 			sums two GO groups like two sets 
 		'''
 		self.proteins = self.proteins | other.getProteins()
 
-	def keepIntersection(self, other):
+	def intersectWith(self, other):
 		'''
 			turns the GO group into intersection of two GO groups
 		'''
 		self.proteins = self.proteins & other.getProteins() 
 
-	def keepSelf(self, other):
+	def subtract(self, other):
 		'''
-			keeps proteins exclusively in self 
+			keeps only the proteins in self 
 		'''
 		self.proteins = self.proteins - other.getProteins()
 
-	def keepOther(self, other):		
+	def subtractedFrom(self, other):		
 		'''
-			keeps proteins exclusively in other 
+			keeps only the proteins in other
 		'''
 		self.proteins = other.getProteins() - self.proteins
 
