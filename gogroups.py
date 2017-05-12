@@ -1,12 +1,22 @@
-class GOGroups():
+class GOGroups:
 	'''
 		A GO Group is a set of proteins.
 	'''
-	def __init__(self, filename, name):
-		self.filename = filename
-		with open (filename, 'rt') as f:
-			self.proteins = set(f.read().split())
-			self.name = name
+	def __init__(self, name):
+		self.name = name
+		self.proteins = set()
+
+	def addProteins(self, filename = None, addset = None):
+		'''
+			adds proteins to the GO group either from file or in a set 
+		'''
+		if addset is None:
+			with open (filename, 'rt') as f:
+				self.proteins = self.proteins | set(f.read().split())
+		elif filename is None:
+			self.proteins = self.proteins | addset
+		else:
+			print("No input.")
 
 	def getProteins(self):
 		'''
