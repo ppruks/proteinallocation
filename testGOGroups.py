@@ -11,5 +11,7 @@ filename2 = "gogroups/go0006555.txt"
 ribosome = GOGroups(filename1, "ribosome")
 other = GOGroups(filename2, "other")
 plotVenn(ribosome, other)
-ribosome.keepSelf(other)
-plotVenn(ribosome, other)
+ribosome.unionWith(other)
+plotVenn(ribosome,other)
+
+
